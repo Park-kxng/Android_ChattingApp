@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HW_Network_Team5_Chatting_Android</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Welcome to Team5 ChatApp !!</string>
+</resources>
