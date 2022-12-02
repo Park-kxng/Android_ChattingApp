@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
                 // TODO Auto-generated method stub
                 String ip=ipAdress.getText().toString();
                 Client.SERVERIP=ip;
-                Intent intent = new Intent(getBaseContext(), ChattingActivity.class);
+                //Intent intent = new Intent(getBaseContext(), ChattingActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ChattingActivity.class);
                 //Log.e("ServerIP", Client.SERVERIP);
                 startActivity(intent);
             }

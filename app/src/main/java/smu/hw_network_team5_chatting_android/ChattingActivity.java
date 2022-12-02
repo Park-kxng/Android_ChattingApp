@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +22,10 @@ public class ChattingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatting);
-
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         arrayList = new ArrayList<String>();
 
         final EditText editText = (EditText) findViewById(R.id.editText);
@@ -40,7 +44,8 @@ public class ChattingActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String message = editText.getText().toString();
-
+                //누른 버튼$$데이터를 보낸 회원의 아이디$$채팅의 내용
+                message = "보내기$$yujeong$$" + message;
                 //add the text in the arrayList
                 //arrayList.add("c: " + message);
 
