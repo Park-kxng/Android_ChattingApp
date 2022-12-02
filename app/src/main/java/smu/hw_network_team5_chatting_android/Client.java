@@ -1,18 +1,21 @@
 package smu.hw_network_team5_chatting_android;
 
 
+
+
 import android.util.Log;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.StringTokenizer;
 
 public class Client {
 
     private String serverMessage;
     public static  String SERVERIP ; // your computer IP
     // address
-    public static final int SERVERPORT = 1004;
-    //public static final int SERVERPORT = 7000;
+    public static final int SERVERPORT = 1004; // yujeong
+    //public static final int SERVERPORT = 7000; // git
     private OnMessageReceived mMessageListener = null;
     private boolean mRun = false;
 
@@ -77,10 +80,23 @@ public class Client {
                 // server
                 while (mRun) {
                     serverMessage = in.readLine();
+                    Log.e("=============Client Get DATA: ", serverMessage);
+                    // 여기에서 받는 부분
+                    //byte[] Data = new byte[100];
+                    //String btNAME = null; // 버튼이름
+                    //String id = null;   // ID
+                    //String chat = null;   // 채팅 내용
+                    //String serverMember = null;  // server에서 보내준 member
+                    //StringTokenizer st, st2;
+                    // data에서 버튼이름, 아이디, 채팅내용, member로 한번 나눈후 member를 다시 나눠야하기 떄문에 stringtokenizer두개 선언
 
                     if (serverMessage != null && mMessageListener != null) {
                         // call the method messageReceived from MyActivity class
+                        //String DATA = new String(Data, 0, Integer.parseInt(serverMessage), "UTF-8"); // 데이터를 받았을때 UTF-8로 디코딩한 문자열을 얻음
+                        Log.e("TCP Client Get DATA: ", serverMessage);
+
                         mMessageListener.messageReceived(serverMessage);
+                        //mMessageListener.messageReceived(serverMessage);
                     }
                     serverMessage = null;
 
