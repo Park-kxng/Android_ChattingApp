@@ -18,14 +18,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ipAdress=(EditText) findViewById(R.id.editText1);
-        loginName = findViewById(R.id.editTextLoginName); // 사용자 이름
+        //loginName = findViewById(R.id.editTextLoginName); // 사용자 이름
         connect=(Button)findViewById(R.id.button1);
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 String ip=ipAdress.getText().toString();
-                userName = loginName.getText().toString();
+                //userName = loginName.getText().toString();
                 Client.SERVERIP=ip;
 
 
