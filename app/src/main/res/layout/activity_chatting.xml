@@ -7,6 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ChattingActivity">
+
+    <Button
+        android:id="@+id/buttonEnter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="입장하기" />
+
     <ListView android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="0dip"

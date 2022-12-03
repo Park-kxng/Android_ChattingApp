@@ -30,6 +30,26 @@
         <requestFocus />
     </EditText>
 
+    <TextView
+        android:id="@+id/textViewLoginName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="12pt"
+        android:paddingTop="15pt"
+        android:paddingBottom="5pt"
+        android:gravity="center"
+        android:text="당신의 이름을 입력하세요" />
+
+    <EditText
+        android:id="@+id/editTextLoginName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:gravity="center"
+        android:text="이름 입력하기" />
+
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"

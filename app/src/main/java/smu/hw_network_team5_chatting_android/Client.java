@@ -82,13 +82,6 @@ public class Client {
                     serverMessage = in.readLine();
                     Log.e("=============Client Get DATA: ", serverMessage);
                     // 여기에서 받는 부분
-                    //byte[] Data = new byte[100];
-                    //String btNAME = null; // 버튼이름
-                    //String id = null;   // ID
-                    //String chat = null;   // 채팅 내용
-                    //String serverMember = null;  // server에서 보내준 member
-                    //StringTokenizer st, st2;
-                    // data에서 버튼이름, 아이디, 채팅내용, member로 한번 나눈후 member를 다시 나눠야하기 떄문에 stringtokenizer두개 선언
 
                     if (serverMessage != null && mMessageListener != null) {
                         // call the method messageReceived from MyActivity class
