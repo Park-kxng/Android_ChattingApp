@@ -14,7 +14,7 @@ public class Client {
     private String serverMessage;
     public static  String SERVERIP ; // your computer IP
     // address
-    public static final int SERVERPORT = 1005; // yujeong
+    public static final int SERVERPORT = 8001; // yujeong
     //public static final int SERVERPORT = 7000; // git
     private OnMessageReceived mMessageListener = null;
     private boolean mRun = false;
@@ -73,8 +73,9 @@ public class Client {
                 Log.e("TCP Client", "C: Done.");
 
                 // receive the message which the server sends back
-                in = new BufferedReader(new InputStreamReader(
-                        socket.getInputStream()));
+                //in = new BufferedReader(new InputStreamReader(
+                //        socket.getInputStream()));
+                in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
 
                 // in this while the client listens for the messages sent by the
                 // server

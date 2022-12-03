@@ -54,6 +54,7 @@ public class ChattingActivity extends AppCompatActivity {
         new connectTask().execute("");
         // 연결 후 다이얼로그 입력 받기
         //loginDialogShow();
+        /*
         Button enterButton = findViewById(R.id.buttonEnter);
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,13 +70,12 @@ public class ChattingActivity extends AppCompatActivity {
                 editText.setText("");
             }
         });
+        */
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 String message = editText.getText().toString();
-                //누른 버튼$$데이터를 보낸 회원의 아이디$$채팅의 내용
-                message = "보내기$$"+userName+"$$" + message;
                 //add the text in the arrayList
                 //arrayList.add("c: " + message);
 
