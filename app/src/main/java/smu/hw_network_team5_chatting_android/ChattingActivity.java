@@ -52,25 +52,7 @@ public class ChattingActivity extends AppCompatActivity {
 
         // connect to the server
         new connectTask().execute("");
-        // 연결 후 다이얼로그 입력 받기
-        //loginDialogShow();
-        /*
-        Button enterButton = findViewById(R.id.buttonEnter);
-        enterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                //sends the message to the server
-                if (mClient != null) {
-                    mClient.sendMessage("확인$$"+userName+"$$");
-                }
-
-                //refresh the list
-                mAdapter.notifyDataSetChanged();
-                editText.setText("");
-            }
-        });
-        */
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,40 +105,5 @@ public class ChattingActivity extends AppCompatActivity {
             mAdapter.notifyDataSetChanged();
         }
     }
-    
-    /////////
-    public void loginDialogShow(){
-        // 로그인 이름만으로 하는 부분에서 다이얼로그로 입력 받기
-        dialogView =View.inflate(getApplicationContext(), R.layout.dialog, null);
-        AlertDialog.Builder dlg = new AlertDialog.Builder(getApplicationContext());
-        dlg.setTitle("사용자 정보 입력");
-        dlg.setView(dialogView); // 대화상자에 뷰를 세팅
-        dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // 확인 눌렀을 때 
-                editTextLoginName = dialogView.findViewById(R.id.editTextLoginName);
-                String loginName= editTextLoginName.getText().toString();
-                if (loginName != null){
-                    String message = "확인$$" + loginName + "$$";
-                    //add the text in the arrayList
-                    //arrayList.add("c: " + message);
 
-                    //sends the message to the server
-                    if (mClient != null) {
-                        mClient.sendMessage(message);
-                    }
-
-                    //refresh the list
-                    mAdapter.notifyDataSetChanged();
-                }else{
-                    Toast myToast = Toast.makeText(getApplicationContext(),"이름을 제대로 입력해주세요", Toast.LENGTH_SHORT);
-                    myToast.show();
-                }
-            }
-        });
-        //무조건 입력해야해서 추소 버튼은 없음
-        dlg.show();
-
-    }
 }
