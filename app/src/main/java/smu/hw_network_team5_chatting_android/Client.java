@@ -14,7 +14,7 @@ public class Client {
     private String serverMessage;
     public static  String SERVERIP ; // your computer IP
     // address
-    public static final int SERVERPORT = 8001; // yujeong
+    public static final int SERVERPORT = 1009; // yujeong
     //public static final int SERVERPORT = 7000; // git
     private OnMessageReceived mMessageListener = null;
     private boolean mRun = false;

@@ -25,9 +25,7 @@ public class ChattingActivity extends AppCompatActivity {
     private MyCustomAdapter mAdapter;
     //public static MyCustomAdapter mAdapter;
     private Client mClient;
-    // 로그인 이름 입력 부분
-    private View dialogView;
-    EditText editTextLoginName;
+    public static boolean myChat = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +61,7 @@ public class ChattingActivity extends AppCompatActivity {
 
                 //sends the message to the server
                 if (mClient != null) {
+                    myChat = true;
                     mClient.sendMessage(message);
                 }
 

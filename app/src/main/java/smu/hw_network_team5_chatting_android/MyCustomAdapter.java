@@ -1,6 +1,9 @@
 package smu.hw_network_team5_chatting_android;
 
+import static smu.hw_network_team5_chatting_android.ChattingActivity.myChat;
+
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +58,10 @@ public class MyCustomAdapter  extends BaseAdapter {
 
             TextView itemName = (TextView) view.findViewById(R.id.list_item_text_view);
 
+            if (myChat){
+                itemName.setTextColor(Color.MAGENTA);
+                myChat=false;
+            }
             if (itemName != null) {
                 //set the item name on the TextView
                 itemName.setText(stringItem);
