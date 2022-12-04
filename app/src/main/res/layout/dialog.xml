@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EFEDED"
+    android:gravity="center"
     android:orientation="vertical">
 
 
@@ -9,21 +11,34 @@
         android:id="@+id/textViewLoginName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/cafe24bold"
+        android:gravity="center"
+        android:text="채팅방에서 사용할 이름을\n입력해주세요"
+        android:textColor="@color/gray"
         android:textSize="12pt"
-        android:textStyle="bold"
-        android:text="이름을 입력해주세요" />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editTextLoginName"
-        android:layout_width="match_parent"
+        android:layout_width="323dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/black"
         android:ems="10"
+        android:fontFamily="@font/cafe24light"
+        android:gravity="center"
         android:inputType="textPersonName"
-        android:text="사용자 이름 입력 부분" />
+        android:text="사용자 이름 입력 부분"
+        android:textColor="@color/gray" />
 
     <Button
         android:id="@+id/buttonLoginOK"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:text="OK" />
+        android:background="@drawable/button_design"
+        android:fontFamily="@font/cafe24bold"
+        android:text="OK"
+        android:textColor="@color/sub"
+        android:textSize="24sp" />
 </LinearLayout>
