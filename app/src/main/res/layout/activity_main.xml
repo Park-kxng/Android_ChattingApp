@@ -23,7 +23,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/cafe24bold"
         android:gravity="center"
-        android:text="@string/hello_world"
+        android:text="5조의 채팅앱에 오신 것을 \n 환영합니다!"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/main"
         android:textSize="34sp" />

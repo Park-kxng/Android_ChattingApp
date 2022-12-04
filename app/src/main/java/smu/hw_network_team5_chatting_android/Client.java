@@ -1,42 +1,29 @@
 package smu.hw_network_team5_chatting_android;
 
-
-
-
 import android.util.Log;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.util.StringTokenizer;
 
 public class Client {
 
     private String serverMessage;
-    public static  String SERVERIP ; // your computer IP
-    // address
-    public static final int SERVERPORT = 1009; // yujeong
-    //public static final int SERVERPORT = 7000; // git
+    public static  String SERVERIP ; //서버 ip
+    public static final int SERVERPORT = 1009; // 포트번호 (서버와 동일하게 1009)
     private OnMessageReceived mMessageListener = null;
     private boolean mRun = false;
 
     PrintWriter out;
     BufferedReader in;
 
-    /**
-     * Constructor of the class. OnMessagedReceived listens for the messages
-     * received from server
-     */
+    // 클래스 생성자. OnMessagedReceived는 서버에서 받은 메시지를 수신
     public Client(OnMessageReceived listener) {
         mMessageListener = listener;
 
     }
 
-    /**
-     * Sends the message entered by client to the server
-     *
-     * @param message
-     *            text entered by client
-     */
+    //@param message  text entered by client
+    // 클라이언트가 입력한 메시지를 서버로 전송
     public void sendMessage(String message) {
         if (out != null && !out.checkError()) {
             out.println(message);
@@ -53,75 +40,53 @@ public class Client {
         mRun = true;
 
         try {
-
-            // here you must put your computer's IP address.
+            // 서버 IP를 넣어줘야 함
             InetAddress serverAddr = InetAddress.getByName(SERVERIP);
             Log.e("serverAddr", serverAddr.toString());
             Log.e("TCP Client", "C: Connecting...");
-
-            // create a socket to make the connection with the server
+            // 서버와 연결하기 위한 소켓 생성
             Socket socket = new Socket(serverAddr, SERVERPORT);
             Log.e("TCP Server IP", SERVERIP);
             try {
-
-                // send the message to the server
+                // 서버에 메시지 보내기
                 out = new PrintWriter(new BufferedWriter(
                         new OutputStreamWriter(socket.getOutputStream())), true);
-
                 Log.e("TCP Client", "C: Sent.");
-
                 Log.e("TCP Client", "C: Done.");
 
-                // receive the message which the server sends back
-                //in = new BufferedReader(new InputStreamReader(
-                //        socket.getInputStream()));
+                // 서버가 다시 보내는 메시지 수신
+                //in = new BufferedReader(new InputStreamReader(socket.getInputStream())); // 한글 되려면 utf-8필요
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
 
-                // in this while the client listens for the messages sent by the
-                // server
+                // 클라이언트가 서버에서 보낸 메시지를 수신하는 동안
                 while (mRun) {
                     serverMessage = in.readLine();
                     Log.e("=============Client Get DATA: ", serverMessage);
                     // 여기에서 받는 부분
-
                     if (serverMessage != null && mMessageListener != null) {
-                        // call the method messageReceived from MyActivity class
-                        //String DATA = new String(Data, 0, Integer.parseInt(serverMessage), "UTF-8"); // 데이터를 받았을때 UTF-8로 디코딩한 문자열을 얻음
+                        // MyActivity에서 messageReceived 메서드를 호출
                         Log.e("TCP Client Get DATA: ", serverMessage);
-
-                        mMessageListener.messageReceived(serverMessage);
-                        //mMessageListener.messageReceived(serverMessage);
+                        mMessageListener.messageReceived(serverMessage);;
                     }
                     serverMessage = null;
-
                 }
-
                 Log.e("RESPONSE FROM SERVER", "S: Received Message: '"
                         + serverMessage + "'");
 
             } catch (Exception e) {
-
                 Log.e("TCP", "S: Error", e);
-
             } finally {
-                // the socket must be closed. It is not possible to reconnect to
-                // this socket
-                // after it is closed, which means a new socket instance has to
-                // be created.
+                // 소켓을 닫아야 함 이 소켓이 닫힌 후 이 소켓에 다시 연결할 수 없음 즉, 새 소켓 인스턴스를 만들어야 함
                 socket.close();
             }
-
         } catch (Exception e) {
-
             Log.e("TCP", "C: Error", e);
-
         }
-
     }
 
-    // Declare the interface. The method messageReceived(String message) will
-    // must be implemented in the MyActivity
-    // class at on asynckTask doInBackground
+    // 인터페이스를 선언
+    // messageReceived(String message)는 asynckTask 
+    // ChattingActivity의 doInBackground로 구현되어야 함
     public interface OnMessageReceived {
         public void messageReceived(String message);
     }

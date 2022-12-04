@@ -17,28 +17,26 @@ public class MyCustomAdapter  extends BaseAdapter {
     private LayoutInflater mLayoutInflater;
 
     public MyCustomAdapter(Context context, ArrayList<String> arrayList){
-
         mListItems = arrayList;
-
-        //get the layout inflater
+        //레이아웃 인플레이터 가져오기
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        //getCount() represents how many items are in the list
+        //getCount()는 목록에 있는 항목 수를 나타냄
         return mListItems.size();
     }
 
     @Override
-    //get the data of an item from a specific position
-    //i represents the position of the item in the list
+    //특정 위치에서 항목의 데이터 가져오기
+    //i가 position을 의미
     public Object getItem(int i) {
         return null;
     }
 
     @Override
-    //get the position id of the item from the list
+    //목록에서 항목의 위치 ID를 가져옴
     public long getItemId(int i) {
         return 0;
     }
@@ -46,29 +44,25 @@ public class MyCustomAdapter  extends BaseAdapter {
     @Override
 
     public View getView(int position, View view, ViewGroup viewGroup) {
-
-        //check to see if the reused view is null or not, if is not null then reuse it
+        //재사용된 뷰가 null인지 여부를 확인하고, null이 아니면 재사용
         if (view == null) {
             view = mLayoutInflater.inflate(R.layout.list_item, null);
         }
-
-        //get the string item from the position "position" from array list to put it on the TextView
+        //배열 목록의 "position" 위치에서 문자열 항목을 가져와 TextView에 넣기
         String stringItem = mListItems.get(position);
         if (stringItem != null) {
-
             TextView itemName = (TextView) view.findViewById(R.id.list_item_text_view);
-
             if (myChat){
+                // 제일 최근 chat이 마젠타 색상으로 표시되게 함
                 itemName.setTextColor(Color.MAGENTA);
                 myChat=false;
             }
             if (itemName != null) {
-                //set the item name on the TextView
+                //TextView에 채팅 글 설정
                 itemName.setText(stringItem);
             }
         }
-
-        //this method must return the view corresponding to the data at the specified position.
+        // 지정된 위치의 데이터에 해당하는 뷰를 반환
         return view;
 
     }

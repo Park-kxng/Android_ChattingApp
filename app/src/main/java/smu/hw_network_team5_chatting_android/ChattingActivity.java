@@ -37,18 +37,15 @@ public class ChattingActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
         
-
         arrayList = new ArrayList<String>();
-
         final EditText editText = (EditText) findViewById(R.id.editText);
         Button send = (Button)findViewById(R.id.send_button);
 
-        //relate the listView from java to the one created in xml
         mList = (ListView)findViewById(R.id.list);
         mAdapter = new MyCustomAdapter(this, arrayList);
         mList.setAdapter(mAdapter);
 
-        // connect to the server
+        // 서버와 연결
         new connectTask().execute("");
 
         send.setOnClickListener(new View.OnClickListener() {
@@ -56,16 +53,16 @@ public class ChattingActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String message = editText.getText().toString();
-                //add the text in the arrayList
+                // arrayList에 텍스트를 추가
                 //arrayList.add("c: " + message);
 
-                //sends the message to the server
+                // 서버에 메세지를 보냄
                 if (mClient != null) {
                     myChat = true;
                     mClient.sendMessage(message);
                 }
 
-                //refresh the list
+                // 리스트를 refresh
                 mAdapter.notifyDataSetChanged();
                 editText.setText("");
             }
