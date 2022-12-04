@@ -15,6 +15,7 @@
         android:layout_marginLeft="5dp"
         android:fontFamily="@font/cafe24light"
         android:padding="10dp"
+        android:textColor="@color/gray"
         android:textSize="20sp" />
 
 </LinearLayout>
