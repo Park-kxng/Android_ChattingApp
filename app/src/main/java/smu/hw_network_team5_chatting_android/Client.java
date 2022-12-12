@@ -9,7 +9,8 @@ public class Client {
 
     private String serverMessage;
     public static  String SERVERIP ; //서버 ip
-    public static final int SERVERPORT = 1009; // 포트번호 (서버와 동일하게 1009)
+    //public static final int SERVERPORT = 1009; // 포트번호 (서버와 동일하게 1009)
+    public static int SERVERPORT = 1009; // 포트번호 (서버와 동일하게 1009)
     private OnMessageReceived mMessageListener = null;
     private boolean mRun = false;
 
