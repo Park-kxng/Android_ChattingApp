@@ -4,36 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CDE9FF"
+    android:background="@drawable/main_background"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="171dp"
-        android:layout_height="159dp"
-        app:srcCompat="@drawable/icon" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/cafe24bold"
-        android:gravity="center"
-        android:text="모여봐요 동네 사람들~!\n모동사"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/main"
-        android:textSize="34sp" />
 
     <EditText
         android:id="@+id/editText1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="400dp"
         android:layout_marginRight="10dp"
         android:backgroundTint="@color/main"
         android:ems="10"
@@ -41,7 +22,7 @@
         android:gravity="center"
         android:hint="IP 주소를 입력해주세요!"
         android:textColor="#393939"
-        android:textColorHint="@color/main">
+        android:textColorHint="@color/white">
 
         <requestFocus />
     </EditText>
@@ -51,11 +32,11 @@
         android:layout_width="132dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_design"
-        android:fontFamily="@font/cafe24bold"
+        android:fontFamily="sans-serif-medium"
         android:text="입장하기"
-        android:textColor="@color/main"
+        android:textColor="#595959"
         android:textSize="24sp"
         android:textStyle="bold"
         tools:layout_marginBottom="50dp" />
@@ -65,20 +46,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/cafe24bold"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="5조 네똑똑이"
-        android:textColor="#3C3C3C"
+        android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/cafe24bold"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="2012140 정유진\n1813932 김유정\n2013075 박근영"
-        android:textColor="@color/gray"
+        android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
 </LinearLayout>
