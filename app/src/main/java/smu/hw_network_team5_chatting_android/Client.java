@@ -48,6 +48,7 @@ public class Client {
             // 서버와 연결하기 위한 소켓 생성
             Socket socket = new Socket(serverAddr, SERVERPORT);
             Log.e("TCP Server IP", SERVERIP);
+
             try {
                 // 서버에 메시지 보내기
                 out = new PrintWriter(new BufferedWriter(
@@ -59,6 +60,7 @@ public class Client {
                 //in = new BufferedReader(new InputStreamReader(socket.getInputStream())); // 한글 되려면 utf-8필요
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
 
+                sendMessage("사용자");
                 // 클라이언트가 서버에서 보낸 메시지를 수신하는 동안
                 while (mRun) {
                     serverMessage = in.readLine();

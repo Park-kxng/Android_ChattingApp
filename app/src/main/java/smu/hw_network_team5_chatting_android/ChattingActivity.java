@@ -19,6 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.dynamic.IFragmentWrapper;
+
 import java.util.ArrayList;
 
 public class ChattingActivity extends AppCompatActivity {
@@ -28,13 +30,16 @@ public class ChattingActivity extends AppCompatActivity {
     //public static MyCustomAdapter mAdapter;
     private Client mClient;
     public static boolean myChat = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatting);
         Intent intent = getIntent();
         int portNumber = intent.getIntExtra("portNumber", 0);
+
         Client.SERVERPORT = portNumber;
+
 
         // 네트워크 연결 위해 필요 부분 ▼
         if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -50,13 +55,13 @@ public class ChattingActivity extends AppCompatActivity {
         mAdapter = new MyCustomAdapter(this, arrayList);
         mList.setAdapter(mAdapter);
 
+
         // 서버와 연결
         new connectTask().execute("");
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String message = editText.getText().toString();
                 // arrayList에 텍스트를 추가
                 //arrayList.add("c: " + message);
@@ -106,5 +111,20 @@ public class ChattingActivity extends AppCompatActivity {
             mAdapter.notifyDataSetChanged();
         }
     }
-
+    //뒤로가기 버튼 눌렀을 때
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Toast.makeText(getApplicationContext(), "문의센터를 나갑니다", Toast.LENGTH_SHORT).show();   //토스트 메시지
+        Intent intent = new Intent(getApplicationContext(), MoDongSa.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        // 서버에 나간다고 메세지를 보냄
+        String done = "/quit";
+        if (mClient != null) {
+            myChat = true;
+            mClient.sendMessage(done);
+        }
+        startActivity(intent);  //인텐트 이동
+        finish();   //현재 액티비티 종료
+    }
 }
