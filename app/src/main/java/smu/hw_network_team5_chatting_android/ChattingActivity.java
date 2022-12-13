@@ -1,11 +1,13 @@
 package smu.hw_network_team5_chatting_android;
 
 import static smu.hw_network_team5_chatting_android.MainActivity.userName;
+import static smu.hw_network_team5_chatting_android.MoDongSa.neighborhoodEvents;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -30,7 +32,10 @@ public class ChattingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatting);
-        
+        Intent intent = getIntent();
+        int portNumber = intent.getIntExtra("portNumber", 0);
+        Client.SERVERPORT = portNumber;
+
         // 네트워크 연결 위해 필요 부분 ▼
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();

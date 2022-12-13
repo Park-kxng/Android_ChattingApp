@@ -5,7 +5,6 @@
         <item>[초급] 가죽 공예 수업</item>
         <item>과일 플레이팅 클래스</item>
         <item>다육 꾸미기 원데이 클래스</item>
-        <item>과일 플레이팅 클래스</item>
         <item>책놀이 북스타트데이</item>
         <item>청파동 주민센터 벼룩시장</item>
         <item>천연비누 만들기 클래스</item>
@@ -62,7 +61,15 @@
         <item>청파동 주민센터\n토일 오후2시~8시</item>
         <item>청파도서관\n화목 오후4시~6시</item>
     </string-array>
-
+    <!--▼ 포트번호 적는 곳-->
+    <integer-array name="portNumber">
+        <item>8001</item>
+        <item>8001</item>
+        <item>8001</item>
+        <item>8002</item>
+        <item>8001</item>
+        <item>8002</item>
+    </integer-array>
 
     <!--▼ 평점 적는 곳(별 몇개인지)-->
     <integer-array name="starScore">

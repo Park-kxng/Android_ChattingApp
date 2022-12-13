@@ -1,5 +1,7 @@
 package smu.hw_network_team5_chatting_android;
 
+import static smu.hw_network_team5_chatting_android.MoDongSa.neighborhoodEvents;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -82,6 +84,16 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter {
                 Intent intent = new Intent(myViewHolder.itemView.getContext(), EventIformation.class);
                 intent.putExtra("clickPosition", position); // position만 넘겨주면 어떤 영화, 스케줄인지 static 변수에 접근 가능
                 //ContextCompat.startActivity(myViewHolder.itemView.getContext(), intent, null);
+                ContextCompat.startActivity(myViewHolder.itemView.getContext(), intent, null);
+            }
+        });
+
+        myViewHolder.askButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(myViewHolder.itemView.getContext(), ChattingActivity.class);
+                intent.putExtra("portNumber",  neighborhoodEvents[position].getPortNumber()); // 해당 기관 포트넘버 넘겨줌
+                //Log.e("ServerIP", Client.SERVERIP);
                 ContextCompat.startActivity(myViewHolder.itemView.getContext(), intent, null);
             }
         });

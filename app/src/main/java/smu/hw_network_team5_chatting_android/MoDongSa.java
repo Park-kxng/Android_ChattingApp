@@ -31,11 +31,12 @@ public class MoDongSa extends AppCompatActivity {
         int starScore_array[] = getResources().getIntArray(R.array.starScore);
         // 이미지 추가하기
         int[] poster_array = {R.drawable.event1, R.drawable.event2, R.drawable.event3, R.drawable.event4, R.drawable.event5, R.drawable.event6};
-        //, R.drawable.event7,R.drawable.event8};
+        // 각 기관별 포트번호 있는 것 추가
+        int portNumber_array[]  = getResources().getIntArray(R.array.portNumber);
 
         // 영화 객체를 리스트로 만들기
         for (int i = 0; i <eventCount; i++) {
-            neighborhoodEvents[i] = new NeighborhoodEvents(title_array[i], date_array[i], info_array[i],  url_array[i],  poster_array[i], starScore_array[i]);
+            neighborhoodEvents[i] = new NeighborhoodEvents(title_array[i], date_array[i], info_array[i],  url_array[i],  poster_array[i], starScore_array[i],portNumber_array[i]);
         }
         // 데이터 영화 리스트
         ArrayList<NeighborhoodEvents> movies_list = new ArrayList<>();
