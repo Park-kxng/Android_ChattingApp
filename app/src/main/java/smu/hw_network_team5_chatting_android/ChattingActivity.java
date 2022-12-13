@@ -1,12 +1,7 @@
 package smu.hw_network_team5_chatting_android;
 
-import static smu.hw_network_team5_chatting_android.MainActivity.userName;
-import static smu.hw_network_team5_chatting_android.MoDongSa.neighborhoodEvents;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,11 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
-
-//import com.google.android.gms.dynamic.IFragmentWrapper;
 
 import java.util.ArrayList;
 
@@ -46,12 +38,12 @@ public class ChattingActivity extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-        
+
         arrayList = new ArrayList<String>();
         final EditText editText = (EditText) findViewById(R.id.editText);
-        Button send = (Button)findViewById(R.id.send_button);
+        Button send = (Button) findViewById(R.id.send_button);
 
-        mList = (ListView)findViewById(R.id.list);
+        mList = (ListView) findViewById(R.id.list);
         mAdapter = new MyCustomAdapter(this, arrayList);
         mList.setAdapter(mAdapter);
 
@@ -80,7 +72,7 @@ public class ChattingActivity extends AppCompatActivity {
 
     }
 
-    public class connectTask extends AsyncTask<String,String,Client> {
+    public class connectTask extends AsyncTask<String, String, Client> {
 
         @Override
         protected Client doInBackground(String... message) {
@@ -111,6 +103,7 @@ public class ChattingActivity extends AppCompatActivity {
             mAdapter.notifyDataSetChanged();
         }
     }
+
     //뒤로가기 버튼 눌렀을 때
     @Override
     public void onBackPressed() {

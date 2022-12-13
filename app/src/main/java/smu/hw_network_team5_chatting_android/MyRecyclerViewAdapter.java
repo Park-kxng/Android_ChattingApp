@@ -93,7 +93,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(myViewHolder.itemView.getContext(), ChattingActivity.class);
-                intent.putExtra("portNumber",  neighborhoodEvents[position].getPortNumber()); // 해당 기관 포트넘버 넘겨줌
+                intent.putExtra("portNumber", neighborhoodEvents[position].getPortNumber()); // 해당 기관 포트넘버 넘겨줌
                 //Log.e("ServerIP", Client.SERVERIP);
                 ContextCompat.startActivity(myViewHolder.itemView.getContext(), intent, null);
             }
@@ -102,7 +102,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter {
         myViewHolder.subscriptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast myToast = Toast.makeText(myViewHolder.itemView.getContext(), neighborhoodEvents[position].getTitle()+"\n신청 완료되었습니다", Toast.LENGTH_LONG);
+                Toast myToast = Toast.makeText(myViewHolder.itemView.getContext(), neighborhoodEvents[position].getTitle() + "\n신청 완료되었습니다", Toast.LENGTH_LONG);
                 myToast.show();
             }
         });

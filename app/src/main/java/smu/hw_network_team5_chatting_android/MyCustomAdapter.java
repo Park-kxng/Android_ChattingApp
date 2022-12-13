@@ -12,11 +12,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MyCustomAdapter  extends BaseAdapter {
+public class MyCustomAdapter extends BaseAdapter {
     private ArrayList<String> mListItems;
     private LayoutInflater mLayoutInflater;
 
-    public MyCustomAdapter(Context context, ArrayList<String> arrayList){
+    public MyCustomAdapter(Context context, ArrayList<String> arrayList) {
         mListItems = arrayList;
         //레이아웃 인플레이터 가져오기
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -52,10 +52,10 @@ public class MyCustomAdapter  extends BaseAdapter {
         String stringItem = mListItems.get(position);
         if (stringItem != null) {
             TextView itemName = (TextView) view.findViewById(R.id.list_item_text_view);
-            if (myChat){
+            if (myChat) {
                 // 제일 최근 chat이 마젠타 색상으로 표시되게 함
                 itemName.setTextColor(Color.MAGENTA);
-                myChat=false;
+                myChat = false;
             }
             if (itemName != null) {
                 //TextView에 채팅 글 설정

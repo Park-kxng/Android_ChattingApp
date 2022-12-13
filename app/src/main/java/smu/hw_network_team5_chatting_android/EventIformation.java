@@ -74,7 +74,7 @@ public class EventIformation extends AppCompatActivity {
         reservationBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast myToast = Toast.makeText(getApplicationContext(),nowNeighborhoodEvents.getTitle()+"\n신청 완료되었습니다", Toast.LENGTH_LONG);
+                Toast myToast = Toast.makeText(getApplicationContext(), nowNeighborhoodEvents.getTitle() + "\n신청 완료되었습니다", Toast.LENGTH_LONG);
                 myToast.show();
             }
         });

@@ -1,6 +1,7 @@
 package smu.hw_network_team5_chatting_android;
 
 import android.util.Log;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -8,7 +9,7 @@ import java.net.Socket;
 public class Client {
 
     private String serverMessage;
-    public static  String SERVERIP ; //서버 ip
+    public static String SERVERIP; //서버 ip
     //public static final int SERVERPORT = 1009; // 포트번호 (서버와 동일하게 1009)
     public static int SERVERPORT = 8001; // 포트번호 (서버와 동일하게 1009)
     private OnMessageReceived mMessageListener = null;
@@ -69,7 +70,8 @@ public class Client {
                     if (serverMessage != null && mMessageListener != null) {
                         // MyActivity에서 messageReceived 메서드를 호출
                         Log.e("TCP Client Get DATA: ", serverMessage);
-                        mMessageListener.messageReceived(serverMessage);;
+                        mMessageListener.messageReceived(serverMessage);
+                        ;
                     }
                     serverMessage = null;
                 }
