@@ -2,6 +2,7 @@ package smu.hw_network_team5_chatting_android;
 
 import static smu.hw_network_team5_chatting_android.MoDongSa.neighborhoodEvents;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,12 +13,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 
 public class EventIformation extends AppCompatActivity {
     static int eventIndex = 0;
+    Button askBTN;
     Button reservationBTN;
     ImageView eventPoster;
     TextView eventTitle, eventDate, eventInfo;
@@ -38,7 +42,7 @@ public class EventIformation extends AppCompatActivity {
         eventIndex = intent.getIntExtra("clickPosition", 0); //클릭한 위치가 movies의 인덱스가 될거임
         NeighborhoodEvents nowNeighborhoodEvents = neighborhoodEvents[eventIndex]; // 현재 보고 있는 창의 영화
         //
-
+        askBTN = findViewById(R.id.askBTN);
         reservationBTN = findViewById(R.id.reservationBTN);
         eventPoster = findViewById(R.id.posterImageView);
         eventTitle = findViewById(R.id.titleTextView);
@@ -46,21 +50,32 @@ public class EventIformation extends AppCompatActivity {
         eventInfo = findViewById(R.id.movieInfoTextView);
         eventStars = findViewById(R.id.starsRatingBar);
 
-        // 선택된 영화로 정보 세팅
+        // 선택된 행사로 정보 세팅
         eventPoster.setImageResource(nowNeighborhoodEvents.getImage_path());
         eventTitle.setText(nowNeighborhoodEvents.getTitle());
         eventDate.setText(nowNeighborhoodEvents.getDate());
         eventInfo.setText(nowNeighborhoodEvents.getInfo());
-        // 영화 url은 string으로 변경
+        //  url은 string으로 변경
         eventWhereURL = nowNeighborhoodEvents.getWhereURL();
         eventStars.setRating(nowNeighborhoodEvents.getStarScore());
-        // 예매하기 버튼 이벤트
+
+        //문의하기 버튼 이벤트
+        askBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ChattingActivity.class);
+                intent.putExtra("portNumber", nowNeighborhoodEvents.getPortNumber()); // 해당 기관 포트넘버 넘겨줌
+                //Log.e("ServerIP", Client.SERVERIP);
+                startActivity(intent);
+            }
+        });
+
+        // 신청 버튼 이벤트
         reservationBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent gointent = new Intent(getApplicationContext(), ReservationDateTime.class);
-                //gointent.putExtra("movieIndex", movieIndex); // 지금 영화의 인덱스를 넘겨줌
-                //startActivity(gointent);
+                Toast myToast = Toast.makeText(getApplicationContext(),nowNeighborhoodEvents.getTitle()+"\n신청 완료되었습니다", Toast.LENGTH_LONG);
+                myToast.show();
             }
         });
 
@@ -78,7 +93,7 @@ public class EventIformation extends AppCompatActivity {
         webView.getSettings().setSupportMultipleWindows(true); // 멀티 윈도우 사용 여부
         webView.getSettings().setDomStorageEnabled(true);  // 로컬 스토리지 (localStorage) 사용여부
 
-        //선택한 영화의 웹페이지 호출 - movieURL = 선택한 영화의 유튜브주소
+        //선택한 행사 관련 웹페이지 호출
         webView.loadUrl(eventWhereURL);
 
 
