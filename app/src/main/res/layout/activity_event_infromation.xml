@@ -4,30 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EDEFFB"
+    android:background="#ffffff"
     android:orientation="vertical"
     tools:context=".EventIformation">
 
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:background="@drawable/modongsa_top"
+        android:gravity="center"
+        android:orientation="horizontal" />
+
+    <LinearLayout
         android:id="@+id/movieInfoHeadLinear"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_weight="2"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/posterImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:layout_weight="1" />
 
         <LinearLayout
             android:id="@+id/movieBasicInfoLinear"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -36,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="제목"
-                android:textColor="#3F51B5"
+                android:textColor="#292929"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -45,43 +50,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="개봉일"
-                android:textColor="#3F51B5"
+                android:textColor="#767676"
                 android:textSize="16sp" />
-
-            <RatingBar
-                android:id="@+id/starsRatingBar"
-                style="@style/Widget.AppCompat.RatingBar.Indicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:numStars="5"
-                android:stepSize="1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/askBTN"
+                <RatingBar
+                    android:id="@+id/starsRatingBar"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#3F51B5"
-                    android:text="문의하기"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    android:paddingLeft="3pt"/>
+                    android:numStars="5"
+                    android:stepSize="1" />
 
-                <Button
-                    android:id="@+id/reservationBTN"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#3F51B5"
-                    android:text="신청하기"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    android:paddingLeft="3pt"/>
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/askBTN"
+                        android:layout_width="66dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/button_design2"
+                        android:drawableStart="@drawable/talk_icon"
+                        android:paddingLeft="10dp"
+                        android:textColor="#767676"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/reservationBTN"
+                        android:layout_width="33dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_design2"
+                        android:text="신청하기"
+                        android:textColor="#767676"
+                        android:textSize="16sp" />
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -106,7 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="소개"
-                android:textColor="#3F51B5"
+                android:textColor="#292929"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -115,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textColor="#1C1E2B"
+                android:textColor="#767676"
                 android:textSize="16sp" />
 
             <TextView
@@ -124,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="영상"
-                android:textColor="#3F51B5"
+                android:textColor="#292929"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -133,8 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="338dp"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                >
+                android:layout_alignParentTop="true">
 
             </WebView>
 
@@ -142,8 +152,8 @@
                 android:id="@+id/textViewForPadding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30pt"
-                android:text="" />
+                android:text=""
+                android:textSize="30pt" />
 
         </LinearLayout>
     </ScrollView>

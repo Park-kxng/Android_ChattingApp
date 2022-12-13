@@ -4,10 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CDE9FF"
+    android:background="#8E8E8E"
     android:orientation="vertical"
     tools:context=".ChattingActivity">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="69dp"
+        tools:srcCompat="@drawable/chatting_top" />
 
     <ListView
         android:id="@+id/list"
@@ -31,11 +37,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/main"
-            android:fontFamily="@font/cafe24light"
+            android:backgroundTint="#ffffff"
+            android:fontFamily="sans-serif-light"
             android:inputType="textMultiLine|textNoSuggestions"
             android:text="메세지를 입력해주세요!"
-            android:textColor="@color/main"
+            android:textColor="#ffffff"
             android:textSize="20sp" />
 
 
@@ -45,9 +51,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@drawable/button_design"
-            android:fontFamily="@font/cafe24bold"
+            android:fontFamily="sans-serif-black"
             android:text="전송"
-            android:textColor="#5EA0FF"
+            android:textColor="#767676"
             android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>
