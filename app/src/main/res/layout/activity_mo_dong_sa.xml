@@ -4,22 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EDEFFB"
+    android:background="#FFFFFF"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="69dp"
+        android:layout_weight="0"
         android:background="@drawable/modongsa_top"
         android:gravity="center"
         android:orientation="horizontal" />
 
+    <ImageView
+        android:layout_width="310dp"
+        android:layout_height="54dp"
+        android:background="@drawable/modongsa_search" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="572dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"></androidx.recyclerview.widget.RecyclerView>
 
     <TextView
